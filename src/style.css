@@ -1,0 +1,60 @@
+body {
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #27292c;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    margin-top: 30px;
+}
+.container{
+    background: #4d545f;
+    border-radius: 10px;
+    width: 450px;
+    /* display: flex;
+    flex-direction: column; */
+    position: relative;
+
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.container::after,.container::before{
+    content: ' ';
+    position: absolute;
+    background-image: conic-gradient(from var(--angle),#f18a23, #d46839,#a32a5d,
+    #3b1757,#175a90,#5a165f,#5f1560,#175a90,#f18a23);
+    height: 100%;
+    width: 100%;
+    padding: 7px;
+    border-radius:10px ;
+    /* centre the background element
+    (this centres only top left corner of square) */
+    top: 50%;
+    left: 50%;
+    /* shifts element left up by half of its width/height */
+    translate: -50% -50%;
+    /* send back of container */
+    z-index: -1;
+}
+.container::before{
+    filter: blur(1.5rem);
+}
+.container:hover::after{
+    animation: 3s spin linear infinite;
+}
+@keyframes spin {
+    0% {
+        --angle: 0deg;
+    }
+    100% {
+        --angle: 360deg;
+    }
+}
