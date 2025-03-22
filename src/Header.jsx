@@ -1,4 +1,4 @@
-import logo from './logo.png';
+import logo from './assets/react.svg';
 export default function Content(){
     return(
         <header className="nav">
